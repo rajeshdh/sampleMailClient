@@ -1,0 +1,26 @@
+[
+  {
+    "from": "TicketFactory",
+    "date": 1400956671914,
+    "subject": "Your confirmation #W45021238038",
+    "id": 50223456
+  },
+  {
+    "from": "TravisCI",
+    "date": 1400956671914,
+    "subject": "[Passed] conditionizr/conditionizr#1 (v0.1.0 - edd6500)",
+    "id": 10824581
+  },
+  {
+    "from": "GitHub",
+    "date": 1400956671914,
+    "subject": "New repo 'conditionizr' created",
+    "id": 90345551
+  },
+  {
+    "from": "Google Feedburner",
+    "date": 1400956671914,
+    "subject": "New subscription",
+    "id": 74838344
+  }
+]

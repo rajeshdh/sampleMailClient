@@ -1,0 +1,41 @@
+<div class="email">
+    <md-toolbar class="md-menu-toolbar">
+        <div class="md-toolbar-tools">
+
+            <md-button ng-href="/#/inbox" aria-label="Go Back">
+                <ng-md-icon icon="arrow_back"></ng-md-icon> Go Back
+            </md-button>
+            <span flex></span>
+
+            <h2>
+           
+            <span>{{ email.message.subject }} </span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-fab" aria-label="Reply" ng-click="reply = !reply;">
+                <ng-md-icon icon="reply"></ng-md-icon>
+            </md-button>
+
+        </div>
+    </md-toolbar>
+
+    <div class="page-container">
+        <div class="email__response" ng-show="reply">
+            <md-input-container class="md-block">
+                <label>Reply</label>
+                <textarea ng-model="response" columns="1" placeholder="Enter a reply" md-maxlength="150" rows="5"></textarea>
+
+                <md-button class="md-fab" aria-label="Send Mail" ng-click="email.reply(response);">
+                    <ng-md-icon icon="send"></ng-md-icon>
+                </md-button>
+
+            </md-input-container>
+
+        </div>
+        <div class="page" ng-bind-html="email.message.content">
+
+        </div>
+    </div>
+
+
+</div>

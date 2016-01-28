@@ -1,0 +1,52 @@
+<md-content layout-padding>
+    <div>
+        <div layout-gt-xs="row" ng-hide="!inbox.messages.length">
+            <md-toolbar ng-show="!showSearch">
+                <div class="md-toolbar-tools">
+                    <md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+                        <ng-md-icon icon="menu"></ng-md-icon>
+                    </md-button>
+                    <h3>
+             You have {{ inbox.messages.length && inbox.messages.length || 'no' }} messages
+          </h3>
+                    <span flex></span>
+                    <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+                        <ng-md-icon icon="search" </ng-md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-toolbar class="md-hue-1" ng-show="showSearch">
+                <div class="md-toolbar-tools">
+                    <md-button ng-click="showSearch = !showSearch" aria-label="Back">
+                        <ng-md-icon icon="arrow_back"></ng-md-icon>
+                    </md-button>
+
+                    <md-input-container md-theme="input" flex>
+                        <label>&nbsp;</label>
+                        <input ng-model="inbox.search" placeholder="Search by 'from', e.g. TicketMaster">
+                    </md-input-container>
+                    <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+                        <ng-md-icon icon="search" </ng-md-icon>
+                    </md-button>
+                </div>
+
+            </md-toolbar>
+        </div>
+    </div>
+
+    <md-list>
+        <md-list-item ng-show="!inbox.messages.length">
+            <p> No messages! Try sending one to a friend.</p>
+        </md-list-item>
+        <md-list-item ng-repeat="message in inbox.messages | filter:{ from: inbox.search }" ng-click="inbox.goToMessage(message.id);">
+            <md-checkbox ng-model="message.selected"></md-checkbox>
+            <p>From: {{ message.from }}</p>
+            <p>{{message.subject}}</p>
+            <p>{{ message.date | date: 'dd/MM/yyyy' }}</p>
+            <ng-md-icon class="md-secondary" ng-click="inbox.deleteMessage(id, $index);" aria-label="Delete" icon="delete"></ng-md-icon>
+        </md-list-item>
+        <md-divider></md-divider>
+    </md-list>
+
+
+</md-content>
